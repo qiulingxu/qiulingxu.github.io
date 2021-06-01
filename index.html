@@ -72,6 +72,14 @@
             margin-top: 50px;
             /* space between content and footer */
         }
+
+        #news_list ul li:nth-child(n+5) {
+          display:none;
+        }
+        #news_list span {
+            /*cursor: pointer;*/
+            color: #f00;
+        }        
     </style>
 </head>
 
@@ -168,8 +176,9 @@
     </div>
     <hr/>
     <div class="container">
-      <div class="col"> 
-        <ul class="list-group">
+      <div class="col" id="news_list"> 
+        <ul class="list-group" >
+          <li class="list-group-item"> <font class="text-info"> [05/2021]</font> I start research internship at Adobe Emerging Product Group!</li>
           <li class="list-group-item"> <font class="text-info"> [05/2021]</font> Our paper on trojan model detection is accepted by ICML 2021.</li>
           <li class="list-group-item"> <font class="text-info"> [04/2021]</font> Our paper on deriving robustness upper bound through information theory is accepted by ISIT 2021.</li>
           <li class="list-group-item"> <font class="text-info"> [12/2020]</font> Our paper on feature space attack is accepted by AAAI 2021.</li>
@@ -177,6 +186,7 @@
           <li class="list-group-item"> <font class="text-info"> [01/2020]</font> Our paper on debugging neural network is accepted by ICSE 2020.</li>
           <li class="list-group-item"> <font class="text-info"> [10/2019]</font> My undergrad work on end-to-end combination of reasoning and perception is accepted by NeurIPS 2019.</li>
         </ul>
+        <span><button type="button" class="btn btn-primary mt-2">[+more]</button></span></button>
       </div>
 
     </div>
@@ -236,6 +246,8 @@
           <br>
             <span><a target="_blank" class="text-info" href="https://arxiv.org/abs/2007.00289">[Arxiv]</a></span> 
             <span><a target="_blank" class="text-info" href="./support/la_cam_adversary.bib">[Bibtex]</a></span>
+            <span><a target="_blank" class="text-info" href="./paper/limitofadv/short_presentation.webm">[Short Talk]</a></span>
+            <span><a target="_blank" class="text-info" href="./paper/limitofadv/full_presentation.webm">[Long Talk]</a></span>            
           </p>
         </div>
       </div>
@@ -263,6 +275,9 @@
             <span><a target="_blank" class="text-info" href="https://arxiv.org/abs/2004.12385v2">[Arxiv]</a></span> 
             <span><a target="_blank" class="text-info" href="https://github.com/qiulingxu/FeatureSpaceAttack">[Code]</a></span>
             <span><a target="_blank" class="text-info" href="./support/feature_attack.bib">[Bibtex]</a></span>
+            <span><a target="_blank" class="text-info" href="./paper/fsa/oneminute.webm">[Short Talk]</a></span>
+            <span><a target="_blank" class="text-info" href="./paper/fsa/full_presentation.webm">[Long Talk]</a></span>
+            <span><a target="_blank" class="text-info" href="./paper/fsa/poster.pdf">[Poster]</a></span>
           </p>
         </div>
       </div>
@@ -419,4 +434,16 @@
 
 
 </body>
+
+<script>
+$(function () {
+    $('#news_list span').click(function () {
+        $('#news_list ul li:hidden').slice(0, 4).css('display','block');//.show();
+        if ($('#news_list ul li').length == $('#news_list ul li:visible').length) {
+            $('#news_list span').hide();
+        }
+    });
+});
+
+</script>
 </html>
